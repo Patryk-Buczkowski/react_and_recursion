@@ -13,7 +13,7 @@ function generateNestedList(obj: any, parentElement?: HTMLElement | null): React
         // Jeśli wartość klucza jest obiektem, wywołujemy funkcję rekurencyjnie dla tej wartości
         if (typeof obj[key] === 'object' && obj[key] !== null) {
             const nestedList = generateNestedList(obj[key]);
-            items.push(<li key={key}>{nestedList}</li>);
+            items.push(<li key={key}>{key}{nestedList}</li>);
         } else {
             items.push(<li key={key}>{itemContent}</li>);
         }

@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { getUserTodos } from '../Services/services';
 import { User } from '../Types/types';
-import generateNestedList from './help';
+import generateNestedList from './getListFunction';
 
 type Prop = {
   userId: number;
@@ -13,13 +13,16 @@ export const UserInfo = ({ userId }: Prop) => {
 
   useEffect(() => {
     const loadData = async () => {
-      getUserTodos(userId).then(setUser);
+      const userData = await getUserTodos(userId);
+      setUser(userData)
 
-      setList(generateNestedList(user));
+      const nestedList = generateNestedList(user);
+      setList(nestedList);
     };
 
     loadData();
-  }, [user, userId]);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [userId]);
 
   return (
     <div style={{ border: '1px dotted black', width: '50%' }}>

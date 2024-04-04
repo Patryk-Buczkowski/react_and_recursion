@@ -20,9 +20,6 @@ export const UserInfo = ({ userId }: Prop) => {
       try {
         const userData = await getUserInfo(userId);
         setUser(userData);
-
-        const nestedList = generateNestedList(user);
-        setList(nestedList);
       } catch (error) {
         throw new Error("something get wrong");
       } finally {

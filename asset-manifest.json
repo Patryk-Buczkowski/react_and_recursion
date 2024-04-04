@@ -1,13 +1,10 @@
 {
   "files": {
-    "main.css": "/react_and_recursion/static/css/main.1d766016.css",
-    "main.js": "/react_and_recursion/static/js/main.e238fc7b.js",
+    "main.js": "/react_and_recursion/static/js/main.3caec216.js",
     "index.html": "/react_and_recursion/index.html",
-    "main.1d766016.css.map": "/react_and_recursion/static/css/main.1d766016.css.map",
-    "main.e238fc7b.js.map": "/react_and_recursion/static/js/main.e238fc7b.js.map"
+    "main.3caec216.js.map": "/react_and_recursion/static/js/main.3caec216.js.map"
   },
   "entrypoints": [
-    "static/css/main.1d766016.css",
-    "static/js/main.e238fc7b.js"
+    "static/js/main.3caec216.js"
   ]
 }

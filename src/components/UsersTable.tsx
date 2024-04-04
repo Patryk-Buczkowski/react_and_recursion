@@ -46,7 +46,7 @@ export const UsersTable = ({ selectedUserId, setSelectedUserId }: Props) => {
               <td>
                 <button
                   onClick={() => {
-                    setSelectedUserId(selectedUserId === null ? user.id : null);
+                    setSelectedUserId(selectedUserId === user.id ? null : user.id);
                   }}
                   type="button"
                 >

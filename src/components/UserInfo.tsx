@@ -10,23 +10,41 @@ type Prop = {
 export const UserInfo = ({ userId }: Prop) => {
   const [user, setUser] = useState<User | null>(null);
   const [list, setList] = useState<any | HTMLElement | null>(null);
+  const [isLoadingList, setIsLoadingList] = useState(true);
 
   useEffect(() => {
     const loadData = async () => {
-      const userData = await getUserInfo(userId);
-      setUser(userData);
+      setIsLoadingList(true);
+      setUser(null);
+
+      try {
+        const userData = await getUserInfo(userId);
+        setUser(userData);
+
+        const nestedList = generateNestedList(user);
+        setList(nestedList);
+      } catch (error) {
+        throw new Error("something get wrong");
+      } finally {
+        setIsLoadingList(false);
+      }
     };
 
     loadData();
-
-    const nestedList = generateNestedList(user);
-    setList(nestedList);
     // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [userId]);
+
+  useEffect(() => {
+    if (user) {
+      const nestedList = generateNestedList(user);
+      setList(nestedList);
+    }
   }, [user]);
 
   return (
     <div style={{ border: "1px dotted black" }}>
       <h2>❔ USER INFO ❔</h2>
+      {isLoadingList && <p>Loading....</p>}
       {user && (
         <>
           <p>INFO OF USER {userId}</p>

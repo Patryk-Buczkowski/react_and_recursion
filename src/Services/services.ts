@@ -9,8 +9,8 @@ export const getUsers = async () => {
   );
 };
 
-export const getUserTodos = async (userId: number) => {
-  return await fetch(`https://jsonplaceholder.typicode.com/users/${userId}`).then(
-    (response) => response.json()
-  );
+export const getUserInfo = async (userId: number) => {
+  return await fetch(
+    `https://jsonplaceholder.typicode.com/users/${userId}`
+  ).then((response) => response.json());
 };

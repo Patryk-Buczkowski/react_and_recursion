@@ -1,10 +1,10 @@
-import { useEffect, useState } from 'react';
-import { User } from '../Types/types';
-import { getUsers } from '../Services/services';
+import { useEffect, useState } from "react";
+import { User } from "../Types/types";
+import { getUsers } from "../Services/services";
 
 type Props = {
-  selectedUserId: number;
-  setSelectedUserId: (selectedUserId: number) => void;
+  selectedUserId: number | null;
+  setSelectedUserId: (selectedUserId: number | null) => void;
 };
 
 export const UsersTable = ({ selectedUserId, setSelectedUserId }: Props) => {
@@ -21,7 +21,7 @@ export const UsersTable = ({ selectedUserId, setSelectedUserId }: Props) => {
   }, []);
 
   return (
-    <table style={{ width: '50%' }}>
+    <table>
       <thead>
         <tr>
           <th>ID</th>
@@ -31,22 +31,22 @@ export const UsersTable = ({ selectedUserId, setSelectedUserId }: Props) => {
         </tr>
       </thead>
       <tbody>
-        {users?.map(user => {
+        {users?.map((user) => {
           return (
-            <tr key={user.id} style={{textAlign: 'center'}}>
+            <tr key={user.id} style={{ textAlign: "center" }}>
               <td>{user.id}</td>
               <td>
                 {selectedUserId === user.id ? (
-                  <strong>{user.username}</strong>
+                  <strong>{user.name}</strong>
                 ) : (
-                  user.username
+                  user.name
                 )}
               </td>
               <td>{user.email}</td>
               <td>
                 <button
                   onClick={() => {
-                    setSelectedUserId(user.id);
+                    setSelectedUserId(selectedUserId === null ? user.id : null);
                   }}
                   type="button"
                 >

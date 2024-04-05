@@ -13,7 +13,6 @@ function App() {
 
       <div className="container">
         <div>
-          {isLoadingTable && <p>Loading Users Table...</p>}
           <UsersTable
             selectedUserId={selectedUserId}
             setSelectedUserId={setSelectedUserId}

@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import { getUserInfo } from "../services/services";
-import { User } from "../types/types";
+import { getUserInfo } from "../Services/services";
+import { User } from "../Types/types";
 import generateNestedList from "./getListFunction";
 
 type Prop = {

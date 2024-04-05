@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import { User } from "../types/types";
-import { getUsers } from "../services/services";
+import { User } from "../Types/types";
+import { getUsers } from "../Services/services";
 
 type Props = {
   selectedUserId: number | null;

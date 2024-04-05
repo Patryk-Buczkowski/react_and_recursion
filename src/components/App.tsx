@@ -10,13 +10,15 @@ function App() {
     <>
       <h1>{"List from server 👓"}</h1>
 
-      <div className="container">
+      <div style={{ display: "flex", gap: "10px",  }}>
         <UsersTable
           selectedUserId={selectedUserId}
           setSelectedUserId={setSelectedUserId}
         />
 
-        <div>{selectedUserId && <UserInfo userId={selectedUserId} />}</div>
+        <div style={{flexGrow: 1}}>
+          {selectedUserId && <UserInfo userId={selectedUserId} />}
+        </div>
       </div>
     </>
   );

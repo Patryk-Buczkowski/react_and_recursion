@@ -3,3 +3,7 @@
   gap: 10px;
   background-color: lightblue;     
 }
+
+.container__element {
+  flex-grow: 1;
+}

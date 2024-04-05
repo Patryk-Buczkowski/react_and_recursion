@@ -12,16 +12,14 @@ function App() {
       <h1>{"List from server 👓"}</h1>
 
       <div className="container">
-        <div>
-          <UsersTable
-            selectedUserId={selectedUserId}
-            setSelectedUserId={setSelectedUserId}
-            setIsLoadingTable={setIsLoadingTable}
-            isLoadingTable={isLoadingTable}
-          />
-        </div>
+        <UsersTable
+          selectedUserId={selectedUserId}
+          setSelectedUserId={setSelectedUserId}
+          setIsLoadingTable={setIsLoadingTable}
+          isLoadingTable={isLoadingTable}
+        />
 
-        <div style={{ flexGrow: 1 }}>
+        <div className="container__element">
           {selectedUserId && <UserInfo userId={selectedUserId} />}
         </div>
       </div>

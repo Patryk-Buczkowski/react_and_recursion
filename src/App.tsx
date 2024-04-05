@@ -4,6 +4,7 @@ import { UserInfo } from "./components/UserInfo";
 
 function App() {
   const [selectedUserId, setSelectedUserId] = useState<number | null>(null);
+  const [isLoadingTable, setIsLoadingTable] = useState(false);
 
   return (
     <>
@@ -15,15 +16,17 @@ function App() {
           gap: "10px",
         }}
       >
-        <div >
+        <div>
           <UsersTable
+            isLoadingTable={isLoadingTable}
             selectedUserId={selectedUserId}
             setSelectedUserId={setSelectedUserId}
+            setIsLoadingTable={setIsLoadingTable}
           />
         </div>
 
-        <div style={{flexGrow: 1}}>
-          {selectedUserId !== null && <UserInfo userId={selectedUserId} />}
+        <div style={{ flexGrow: 1 }}>
+          {selectedUserId && <UserInfo userId={selectedUserId} />}
         </div>
       </div>
     </>

@@ -1,10 +1,11 @@
 import { useState } from "react";
 import { UsersTable } from "./UsersTable";
 import { UserInfo } from "./UserInfo";
-import "./styles/App.css"
+import "./styles/App.css";
 
 function App() {
   const [selectedUserId, setSelectedUserId] = useState<number | null>(null);
+  const [isLoadingTable, setIsLoadingTable] = useState(false);
 
   return (
     <>
@@ -12,13 +13,16 @@ function App() {
 
       <div className="container">
         <div>
+          {isLoadingTable && <p>Loading Users Table...</p>}
           <UsersTable
             selectedUserId={selectedUserId}
             setSelectedUserId={setSelectedUserId}
+            setIsLoadingTable={setIsLoadingTable}
+            isLoadingTable={isLoadingTable}
           />
         </div>
 
-        <div style={{flexGrow: 1}}>
+        <div style={{ flexGrow: 1 }}>
           {selectedUserId && <UserInfo userId={selectedUserId} />}
         </div>
       </div>

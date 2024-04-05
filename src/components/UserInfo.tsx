@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import { getUserInfo } from "../Services/services";
-import { User } from "../Types/types";
+import { getUserInfo } from "../services/services";
+import { User } from "../types/types";
 import generateNestedList from "./getListFunction";
 
 type Prop = {
@@ -14,10 +14,9 @@ export const UserInfo = ({ userId }: Prop) => {
 
   useEffect(() => {
     const loadData = async () => {
-      setIsLoadingList(true);
-      setUser(null);
-
       try {
+        setIsLoadingList(true);
+        setUser(null);
         const userData = await getUserInfo(userId);
         setUser(userData);
       } catch (error) {

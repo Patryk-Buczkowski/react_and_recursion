@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import { User } from "../Types/types";
-import { getUsers } from "../Services/services";
+import { User } from "../types/types";
+import { getUsers } from "../services/services";
 
 type Props = {
   selectedUserId: number | null;
@@ -46,7 +46,9 @@ export const UsersTable = ({ selectedUserId, setSelectedUserId }: Props) => {
               <td>
                 <button
                   onClick={() => {
-                    setSelectedUserId(selectedUserId === user.id ? null : user.id);
+                    setSelectedUserId(
+                      selectedUserId === user.id ? null : user.id
+                    );
                   }}
                   type="button"
                 >

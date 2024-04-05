@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { UsersTable } from "./UsersTable";
 import { UserInfo } from "./UserInfo";
-import "./App.css";
 
 function App() {
   const [selectedUserId, setSelectedUserId] = useState<number | null>(null);

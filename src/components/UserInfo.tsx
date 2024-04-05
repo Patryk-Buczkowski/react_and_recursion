@@ -20,7 +20,7 @@ export const UserInfo = ({ userId }: Prop) => {
         const userData = await getUserInfo(userId);
         setUser(userData);
       } catch (error) {
-        throw new Error("something get wrong");
+        throw new Error(`${error} ups...`);
       } finally {
         setIsLoadingList(false);
       }

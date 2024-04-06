@@ -7,6 +7,8 @@ export const getUsers = async () => {
   return await fetch("https://jsonplaceholder.typicode.com/users").then(
     (response) => response.json()
   );
+
+  // return []; // return to imtate empty users table
 };
 
 export const getUserInfo = async (userId: number) => {

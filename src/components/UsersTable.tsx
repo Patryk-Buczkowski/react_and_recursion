@@ -44,6 +44,10 @@ export const UsersTable = ({
     </thead>
   );
 
+  if (users !== null && users.length === 0) {
+    return <p>No users available 😢</p>
+  }
+
   return (
     <>
       {isLoadingTable && <p>User Table loading...</p>}
